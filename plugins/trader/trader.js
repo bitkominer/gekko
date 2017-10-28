@@ -4,7 +4,17 @@ var config = util.getConfig();
 var dirs = util.dirs();
 
 var log = require(dirs.core + 'log');
-var Manager = require('./portfolioManager');
+
+//-----------------------------------------------------------------------------------
+//===== Choose true to activate pingpong trade, false for default gekko setting =====
+//-----------------------------------------------------------------------------------
+var activatepingpong = true;
+//-----------------------------------------------------------------------------------
+	if(activatepingpong = true){
+		var Manager = require('./portfolioManager_pingpong');
+	}else{
+		var Manager = require('./portfolioManager');
+	}
 
 var Trader = function(next) {
   _.bindAll(this);
