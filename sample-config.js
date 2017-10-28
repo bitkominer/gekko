@@ -17,8 +17,8 @@ config.watch = {
 
   // see https://gekko.wizb.it/docs/introduction/supported_exchanges.html
   exchange: 'poloniex',
-  currency: 'USDT',
-  asset: 'BTC',
+  currency: 'BTC',
+  asset: 'XRP',
 
   // You can set your own tickrate (refresh rate).
   // If you don't set it, the defaults are 2 sec for
@@ -32,7 +32,7 @@ config.watch = {
 
 config.tradingAdvisor = {
   enabled: true,
-  method: 'MACD',
+  method: 'RSI',
   candleSize: 1,
   historySize: 3,
   adapter: 'sqlite',
@@ -106,7 +106,7 @@ config.varPPO = {
 
 // RSI settings:
 config.RSI = {
-  interval: 14,
+  interval: 3,
   thresholds: {
     low: 30,
     high: 70,
@@ -190,7 +190,7 @@ config['talib-macd'] = {
 
 // do you want Gekko to simulate the profit of the strategy's own advice?
 config.paperTrader = {
-  enabled: true,
+  enabled: false,
   // report the profit in the currency or the asset?
   reportInCurrency: true,
   // start balance, on what the current balance is compared with
@@ -216,7 +216,7 @@ config.performanceAnalyzer = {
 // Enabling this will activate trades for the market being
 // watched by `config.watch`.
 config.trader = {
-  enabled: false,
+  enabled: true,
   key: '',
   secret: '',
   username: '', // your username, only required for specific exchanges.
@@ -449,6 +449,6 @@ config.importer = {
 // understand this.
 //
 // Not sure? Read this first: https://github.com/askmike/gekko/issues/201
-config['I understand that Gekko only automates MY OWN trading strategies'] = false;
+config['I understand that Gekko only automates MY OWN trading strategies'] = true;
 
 module.exports = config;
